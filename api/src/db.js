@@ -32,6 +32,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
   dialectOptions: {
     ssl: {
       require: true,
+      rejectUnauthorized: false
     },
   },
 });
