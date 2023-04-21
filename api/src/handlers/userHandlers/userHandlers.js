@@ -58,16 +58,17 @@ const PUT_USER = async (req, res) => {
       image,
       is_plan_pay,
       is_delete,
+      planId,
     } = req.body;
     const data = await setUser(
       id,
       full_name,
-      email,
       password,
       user_name,
       image,
       is_plan_pay,
-      is_delete
+      is_delete,
+      planId
     );
     return res.status(201).json(data);
   } catch (error) {
