@@ -106,7 +106,6 @@ const createUser = async (full_name, email, password, user_name, image) => {
 const setUser = async (
   id,
   full_name,
-  email,
   password,
   user_name,
   image,
@@ -118,7 +117,6 @@ const setUser = async (
   if (changeUser) {
     await changeUser.set({
       full_name: full_name,
-      email: email,
       password: password,
       user_name: user_name,
       image: image,
