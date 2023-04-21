@@ -106,23 +106,23 @@ const createUser = async (full_name, email, password, user_name, image) => {
 const setUser = async (
   id,
   full_name,
+  email,
   password,
   user_name,
   image,
   is_plan_pay,
-  is_delete,
-  planId
+  is_delete
 ) => {
   const changeUser = await User.findByPk(id);
   if (changeUser) {
     await changeUser.set({
       full_name: full_name,
+      email: email,
       password: password,
       user_name: user_name,
       image: image,
       is_plan_pay: is_plan_pay,
       is_delete: is_delete,
-      planId: planId
     });
 
     await changeUser.save();

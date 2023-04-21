@@ -15,8 +15,10 @@ const createPaymentPlan = async (
   await requestUser.save();
 
   const requestPlan = await Plan.findByPk(planId);
-  await requestPlan.addUser(requestUser); //?Correcto
-  await requestPlan.save();
+  // await requestPlan.setUser(requestUser); //?Correcto
+  // await requestPlan.save();
+  await requestUser.setPlan(requestPlan);
+  await requestUser.save();
 
   const requestPayment = await Payment.create({
     description,
