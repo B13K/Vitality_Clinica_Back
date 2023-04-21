@@ -131,7 +131,7 @@ const createPago_V2 = async (plan, medical, analisys) => {
     items: [],
     back_urls: {
       success:
-        "https://http://vitality-medical-group.vercel.app/checkout/feedback",
+        "https://vitality-medical-group.vercel.app/checkout/feedback",
       failure: "",
       pending: "",
     },
