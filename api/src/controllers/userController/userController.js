@@ -111,7 +111,8 @@ const setUser = async (
   user_name,
   image,
   is_plan_pay,
-  is_delete
+  is_delete,
+  planId
 ) => {
   const changeUser = await User.findByPk(id);
   if (changeUser) {
@@ -123,6 +124,7 @@ const setUser = async (
       image: image,
       is_plan_pay: is_plan_pay,
       is_delete: is_delete,
+      planId: planId
     });
 
     await changeUser.save();
