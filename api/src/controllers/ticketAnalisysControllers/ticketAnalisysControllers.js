@@ -1,6 +1,14 @@
 const { Patient, TicketAnalysis, Analysis } = require("../../db.js");
 // *Este controller permite crear el TicketAnalysis, realizar la asociación entre TicketAnalysis y Analysis y paciente a TicketAnalysis:
-const createTicket = async (idAnalysis, title, observations, idPatient, date, hour, price) => {
+const createTicket = async (
+  idAnalysis,
+  title,
+  observations,
+  idPatient,
+  date,
+  hour,
+  price
+) => {
   const requestTicketAnalysis = await TicketAnalysis.create({
     title,
     observations,
@@ -59,10 +67,23 @@ const destroyAllTicket = async () => {
   return "Todos los registros de los turnos para análisis clínico fueron exitosamente destruidos";
 };
 
+// *Este controller permite buscar todos los turnos para análisis asociados a un análisis (id) en específico por fecha exacta:
+
+const allTicketAnalysisByDate = async (analysisId, date) => {
+  const request = await TicketAnalysis.findAll({
+    where: {
+      analysisId: analysisId,
+      date: date,
+    },
+  });
+  return request;
+};
+
 module.exports = {
   createTicket,
   allTickets,
   ticketAnalisysId,
   deleteTicketAnalisys,
   destroyAllTicket,
+  allTicketAnalysisByDate,
 };

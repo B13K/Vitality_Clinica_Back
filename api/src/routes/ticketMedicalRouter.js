@@ -6,7 +6,8 @@ const {
   ticketIdHandler,
   deleteTicketHandler,
   destroyTicketHandler,
-  destroyAllTicketHandler
+  destroyAllTicketHandler,
+  allTicketByDateHandler,
 } = require("../handlers/ticketMedicalHandlers/ticketMedicalHandlers.js");
 const {
   validatorCreateTicketMedical,
@@ -16,6 +17,8 @@ const {
 const ticketMedicalRouter = Router();
 
 ticketMedicalRouter.get("/", allTicketHandler);
+
+ticketMedicalRouter.get("/ticketsByDate", allTicketByDateHandler);
 
 ticketMedicalRouter.get("/:id", ticketIdHandler);
 

@@ -4,11 +4,13 @@ const {
   ticketAnalisysId,
   deleteTicketAnalisys,
   destroyAllTicket,
+  allTicketAnalysisByDate
 } = require("../../controllers/ticketAnalisysControllers/ticketAnalisysControllers.js");
 
 const createTicketAnalisysHandler = async (req, res) => {
   try {
-    const { idAnalysis, title, observations, idPatient, date, hour, price } = req.body;
+    const { idAnalysis, title, observations, idPatient, date, hour, price } =
+      req.body;
     const request = await createTicket(
       idAnalysis,
       title,
@@ -62,10 +64,21 @@ const destroyAllTicketHandler = async (req, res) => {
   }
 };
 
+const allTicketAnalysisByDateHandler = async (req, res) => {
+  try {
+    const { analysisId, date } = req.body;
+    const request = await allTicketAnalysisByDate(analysisId, date);
+    return res.status(200).json(request);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   createTicketAnalisysHandler,
   allTicketAnalisysHandler,
   ticketAnalisysIdHandler,
   deleteTicketAnalisysHandler,
   destroyAllTicketHandler,
+  allTicketAnalysisByDateHandler,
 };

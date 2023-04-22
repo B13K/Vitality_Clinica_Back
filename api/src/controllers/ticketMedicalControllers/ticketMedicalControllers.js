@@ -120,6 +120,17 @@ const destroyAllTicket = async () => {
   return "Todos los registros de los turnos médicos fueron exitosamente destruidos";
 };
 
+// *Este controller permite buscar todos los turnos médicos asociados a un médico (id) en específico por fecha exacta:
+const allTicketByDate = async (doctorId, date) => {
+  const request = await TicketMedical.findAll({
+    where: {
+      doctorId: doctorId,
+      date: date,
+    },
+  });
+  return request
+};
+
 module.exports = {
   createTicket,
   confirmTicket,
@@ -128,4 +139,5 @@ module.exports = {
   deleteTicket,
   destroyTicket,
   destroyAllTicket,
+  allTicketByDate,
 };

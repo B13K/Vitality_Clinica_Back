@@ -1076,6 +1076,78 @@ Devuelve:
 "Todos los registros de los turnos médicos fueron exitosamente destruidos"
 ```
 
+- `get => /ticketMedical/ticketsByDate` => este endpoint recibe por body un objeto con `doctorId` y `date` y devuelve un array con todos los turnos que coinciden con ese id de doctor y esa fecha.
+  Recibe:
+
+```shell
+{
+	"doctorId": 1,
+	"date": "2023-04-10"
+}
+```
+
+Devuelve:
+
+```shell
+[
+	{
+		"id": 11,
+		"title": "migrañas",
+		"observations": "Consulta con Neurología",
+		"date": "2023-04-10",
+		"hour": "09:00",
+		"is_confirmed": false,
+		"is_delete": false,
+		"is_canceled": false,
+		"scheduleId": 11,
+		"patientId": 2,
+		"doctorId": 1,
+		"dayId": 3
+	},
+	{
+		"id": 12,
+		"title": "migrañas",
+		"observations": "Consulta con Neurología",
+		"date": "2023-04-10",
+		"hour": "10:00",
+		"is_confirmed": false,
+		"is_delete": false,
+		"is_canceled": false,
+		"scheduleId": 12,
+		"patientId": 2,
+		"doctorId": 1,
+		"dayId": 3
+	},
+	{
+		"id": 13,
+		"title": "migrañas",
+		"observations": "Consulta con Neurología",
+		"date": "2023-04-10",
+		"hour": "11:00",
+		"is_confirmed": false,
+		"is_delete": false,
+		"is_canceled": false,
+		"scheduleId": 13,
+		"patientId": 2,
+		"doctorId": 1,
+		"dayId": 3
+	},
+	{
+		"id": 14,
+		"title": "migrañas",
+		"observations": "Consulta con Neurología",
+		"date": "2023-04-10",
+		"hour": "11:30",
+		"is_confirmed": false,
+		"is_delete": false,
+		"is_canceled": false,
+		"scheduleId": 14,
+		"patientId": 2,
+		"doctorId": 1,
+		"dayId": 3
+	}
+```
+
 ## Endpoints de la ruta _/speciality_:
 
 - `get => /speciality` => Este endpoint devuelve un array con todas las especialidades de la clínica y los nombres y ids de los médicos asociados a esas especialidades.
@@ -1846,6 +1918,62 @@ Devuelve:
 
 ```shell
 "Todos los registros de los turnos para análisis clínico fueron exitosamente destruidos"
+```
+
+- `get => /ticketAnalysis/ticketsAnalysisByDate` => Este endpoint recibe por body un objeto con `analysisId` y `date`; devuelve un array con todos los turnos para análysis que coincidan con ese id de análisis y con esa fecha.
+  Recibe:
+
+```shell
+{
+	"analysisId": 2,
+	"date": "2023-04-13"
+}
+```
+
+Devuelve:
+
+```shell
+[
+	{
+		"id": 4,
+		"title": "electroencefalograma anal del culo",
+		"observations": "dolores de cabeza en el culo",
+		"date": "2023-04-13",
+		"hour": "11:00",
+		"price": 300,
+		"is_paid": false,
+		"is_delete": false,
+		"analysisId": 2,
+		"paymentId": null,
+		"patientId": 1
+	},
+	{
+		"id": 5,
+		"title": "electroencefalograma anal del culo",
+		"observations": "dolores de cabeza en el culo",
+		"date": "2023-04-13",
+		"hour": "08:00",
+		"price": 300,
+		"is_paid": false,
+		"is_delete": false,
+		"analysisId": 2,
+		"paymentId": null,
+		"patientId": 2
+	},
+	{
+		"id": 6,
+		"title": "electroencefalograma anal del culo",
+		"observations": "dolores de cabeza en el culo",
+		"date": "2023-04-13",
+		"hour": "08:00",
+		"price": 300,
+		"is_paid": false,
+		"is_delete": false,
+		"analysisId": 2,
+		"paymentId": null,
+		"patientId": 4
+	}
+]
 ```
 
 ## Endpoints de la ruta _/payment_:

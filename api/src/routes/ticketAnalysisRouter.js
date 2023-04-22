@@ -5,6 +5,7 @@ const {
   ticketAnalisysIdHandler,
   deleteTicketAnalisysHandler,
   destroyAllTicketHandler,
+  allTicketAnalysisByDateHandler,
 } = require("../handlers/ticketAnalisysHandlers/ticketAnalisysHandlers.js");
 const {
   validatorCreateTicketAnalisys,
@@ -14,6 +15,11 @@ const {
 const ticketAnalisysRouter = Router();
 
 ticketAnalisysRouter.get("/", allTicketAnalisysHandler);
+
+ticketAnalisysRouter.get(
+  "/ticketsAnalysisByDate",
+  allTicketAnalysisByDateHandler
+);
 
 ticketAnalisysRouter.get("/:id", ticketAnalisysIdHandler);
 
