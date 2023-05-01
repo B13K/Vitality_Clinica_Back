@@ -45,7 +45,7 @@ const signUp = async (full_name, email, user_name, image) => {
 
     await newUser.save();
     const link = "https://vitality-medical-group.vercel.app/planes"
-    await mailWelcome(newUser, link)
+    // await mailWelcome(newUser, link)
     return newUser
 }
 

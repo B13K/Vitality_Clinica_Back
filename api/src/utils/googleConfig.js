@@ -16,11 +16,12 @@ const oauth2Client = new OAuth2(
     'https://developers.google.com/oauthplayground'
 );
 
-oauth2Client.setCredentials({
-    refresh_token: REFRESH_TOKEN
-});
+// oauth2Client.setCredentials({
+//     refresh_token: REFRESH_TOKEN
+// });
 
-const accessToken = oauth2Client.getAccessToken();
+const accessToken = "" // Despues de crear las credenciales en google se descomenta la siguiente linea
+// const accessToken = oauth2Client.getAccessToken();
 
 const auth = {
     type: 'OAuth2',
